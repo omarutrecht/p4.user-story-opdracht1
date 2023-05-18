@@ -11,22 +11,28 @@ class Instructeur extends BaseController
      
     public function index()
     {
+        /**haal alle instucteurs op uit de database (model)*/
+
          $Instructeur = $this->InstructeurModel->getInstructeur();
- 
+        /**maak de rows voor de tbody in de view*/
         $rows = "";
         foreach ($Instructeur as $value) {
+           
+            $datum = date_create($value->DatumInDienst);
+            $datum = date_format($datum, 'd-m-y');
+
             $rows .= "<tr>
                         <td>$value->Voornaam</td>
                         <td>$value->Tussenvoegsel</td>
                         <td>$value->Achternaam</td>
                         <td>$value->Mobiel</td>
-                        <td>$value->DatumInDienst</td>
+                        <td>$datum</td>
                         <td>$value->AantalSterren</td>
                         <td><a href='/Instructeur/gebruiktevoertuigen/$value->instructeurid'><img src='https://www.freeiconspng.com/thumbs/car-icon-png/car-icon-png-25.png' width = '40px'></a></td>
                         </tr>
                       </tr>";
         }
-        
+        //**het data array geeft alle*/
 
         $data = [
             'titleaaa' => 'Instructeurs in dienst:
