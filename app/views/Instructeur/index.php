@@ -3,7 +3,7 @@
 <body>
 
 <h3><?php echo $data['titleaaa'];?></h3>
-<h5>aantal instructeurs : <?=$data['Amountofinstructeurs'] ?></h5>
+<h5>Aantal Instructeurs : <?=$data['Amountofinstructeurs'] ?></h5>
 
 <table border= "1">
     <thead>
